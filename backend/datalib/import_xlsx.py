@@ -7,18 +7,19 @@ class Data():
     data_from_xlsx: dict = None
 
     @classmethod
-    def get_files(cls) -> list:
-        path = os.getcwd()
+    def get_files(cls, path=None) -> list:
+        path = './data_xls'
         files = os.listdir(path)
         files_xls = [f for f in files if f[-4:] == 'xlsx']
         return files_xls
 
     @classmethod
     def get_data(cls) -> list:
-        files_xls=Data.get_files()
+        path = './data_xls'
+        files_xls = Data.get_files(path)
         df = []
         for f in files_xls:
-            data = pd.read_excel(f,  None)
+            data = pd.read_excel(F'{path}/{f}',  None)
             df.append(data)
         return df
 
