@@ -1,9 +1,9 @@
-from datalib.import_xlsx import Data
+from utils.utils import DataMixin
 
 
 if __name__ == '__main__':
 
-    print(F'Список файлов {Data.get_files()}')
-    print(F'Список данных {Data.get_data()}')
+    print(F'Список файлов {DataMixin.get_files()}')
+    print(F'Список данных {DataMixin.get_data()}')
 
 
