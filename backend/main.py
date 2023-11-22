@@ -1,5 +1,4 @@
-from utils.utils import DataMixin
-from core.core import IndexView
+from core.Home import IndexView
 
 
 if __name__ == '__main__':

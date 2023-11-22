@@ -15,16 +15,14 @@ class DataMixin:
         return files_xls
 
     @classmethod
-    def get_data(cls, path=path) -> list:
+    def get_data(cls, path=path) -> dict:
         files_xls = cls.get_files(path)
-        df = []
+        lst = []
         for f in files_xls:
-            data = pd.read_excel(F'{path}/{f}', None)
-            df.append(data)
+            data = pd.read_excel(F'{path}/{f}', None,)
+            for item in data.values():
+                lst.append(item)
+        df = pd.concat([item for item in lst])
+        df = pd.DataFrame(df)
         return df
 
-#    @classmethod
-#   def write_xlsx(cls) -> None:
-#        df = cls.get_data()
-#        writer = pd.ExcelWriter('output.xlsx')
-#        df.to_excel(writer, None)
