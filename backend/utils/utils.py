@@ -29,7 +29,7 @@ class DataMixin:
         return df
 
     @classmethod
-    def data_processing(cls, data: dict = None, column_name: str = None) -> dict:
+    def data_filling(cls, data: dict = None, column_name: list = None) -> dict:
         """Заполняет пустые данные в столбце"""
         df = data
         df[column_name] = df[column_name].fillna(method='ffill')

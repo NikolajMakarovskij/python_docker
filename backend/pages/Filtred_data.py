@@ -11,8 +11,8 @@ class FiltredDataView(View, DataMixin):
     @classmethod
     def get(cls, cur_year=cur_year):
         data = cls.get_data()
-        data = cls.data_processing(data, column_name='number')
-        data = cls.data_processing(data, column_name='date')
+        column_name = ['number', 'date']
+        data = cls.data_filling(data, column_name)
         st.subheader('Текущий год, станция 2')
         filtered_data = (data['date'] >= cur_year.strftime('%Y')) & (data['station'] == 'two')
         st_two = cls.data_filtered(data, filtered_data)
