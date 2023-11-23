@@ -1,3 +1,4 @@
+import pandas as pd
 from utils.utils import DataMixin
 from core.View import View
 import streamlit as st
@@ -7,9 +8,11 @@ class DataView(View):
     @classmethod
     def get(cls):
         st.subheader('Считанные файлы')
-        st.write(DataMixin.get_files())
+        df = pd.DataFrame(DataMixin.get_files())
+        st.write('Количество записей', list(df.count()), 'Список файлов', df, )
         st.subheader('Считанные данные из файлов')
-        st.write(DataMixin.get_data())
+        df = DataMixin.get_data()
+        st.write('Количество Записей', list(df.count()), 'Записи', df)
 
 
 DataView()
