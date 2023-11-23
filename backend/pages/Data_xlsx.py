@@ -13,6 +13,9 @@ class DataView(View):
         st.subheader('Считанные данные из файлов')
         df = DataMixin.get_data()
         st.write('Количество Записей', list(df.count()), 'Записи', df)
+        headers = df.iloc[1]
+        new_df = pd.DataFrame(df.values[1:], columns=headers)
+        st.write('Записи', new_df)
 
 
 DataView()
