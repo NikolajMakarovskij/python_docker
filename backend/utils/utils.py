@@ -46,4 +46,3 @@ class DataMixin:
         """Возвращает сумму столбца"""
         column_sum = data[column_name].sum()
         return column_sum
-
