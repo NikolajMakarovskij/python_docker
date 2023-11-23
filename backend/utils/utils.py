@@ -42,7 +42,7 @@ class DataMixin:
         return data_filtered
 
     @classmethod
-    def get_column_sum(cls, data: dict = None, column_name: str = None) -> float:
+    def get_column_sum(cls, data: dict = None, column_name: list = None) -> float:
         """Возвращает сумму столбца"""
         column_sum = data[column_name].sum()
         return column_sum
