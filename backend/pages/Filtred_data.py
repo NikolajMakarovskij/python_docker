@@ -21,13 +21,15 @@ class FiltredDataView(View, DataMixin):
         filtered_data = (data['date'] >= cur_year.strftime('%Y')) & (data['station'] == 'three')
         st_three = cls.data_filtered(data, filtered_data)
         st.write(st_three)
-        column_name = 'quantity'  # Костыль! Передать лучше строку. Если передать список, выводится объект, 
+        column_name = 'quantity'  # Костыль! Передать лучше строку. Если передать список, выводится объект,
         # значения которого необходимо выводить через цикл
         sum_st_two = cls.get_column_sum(st_two, column_name)
         sum_st_three = cls.get_column_sum(st_three, column_name)
         output_data = pd.DataFrame([{'station': 'two', '2023': sum_st_two}, {'station': 'three', '2023': sum_st_three}])
         st.subheader('Количество пассажиров')
         st.write(output_data)
+        # st.write(sum_st_two)
+        # st.write(sum_st_three)
 
 
 FiltredDataView()
